@@ -40,7 +40,7 @@ class Profile extends Component {
       this.setState({
         displayName: response.display_name,
         followers: response.followers.total,
-        avatar: response.images[0]
+        avatar: response.images[0].url
       });
     });
     spotifyApi.getMyRecentlyPlayedTracks({ limit: 5 }).then(response => {
@@ -56,15 +56,15 @@ class Profile extends Component {
 
     return (
       <div>
-        <h1> Profile Page</h1>
         <h2>{this.state.displayName}</h2>
         <h2>{this.state.followers}</h2>
-        <img src={this.state.avatar} />
+        <img src={this.state.avatar} className='avatar' />
         <div className='song-wrapper'>
           {this.state.topTracks.map(song => (
             <SongCard key={song.track.id} song={song} />
           ))}
         </div>
+        <button>See all</button>
       </div>
     );
   }

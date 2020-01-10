@@ -7,3 +7,18 @@
   margin: 10px;
   width: 100%;
 }
+
+.avatar {
+  border-radius: 50%;
+  width: 150px;
+  box-shadow: rgb(179, 179, 179) 0px 0px 0px 2px inset;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 44;
+
+  &:hover {
+    color: #1db954;
+  }
+}
