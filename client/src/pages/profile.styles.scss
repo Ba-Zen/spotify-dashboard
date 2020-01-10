@@ -8,17 +8,53 @@
   width: 100%;
 }
 
-.avatar {
-  border-radius: 50%;
-  width: 150px;
-  box-shadow: rgb(179, 179, 179) 0px 0px 0px 2px inset;
+.account {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 50px;
+  padding: 20px;
+  width: 900px;
+  align-items: center;
+
+  img {
+    border-radius: 50%;
+    width: 150px;
+    box-shadow: rgb(179, 179, 179) 0px 0px 0px 2px inset;
+  }
+
+  h1 {
+    color: #ffffff;
+    font-size: 44;
+
+    &:hover {
+      color: #1db954;
+    }
+  }
 }
 
-h2 {
-  color: #ffffff;
-  font-size: 44;
+.account-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-  &:hover {
+  h1 {
+    text-align: start;
+  }
+}
+
+.account-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+
+  h2 {
     color: #1db954;
+  }
+
+  h4 {
+    text-align: start;
+    text-transform: uppercase;
   }
 }

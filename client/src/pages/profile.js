@@ -17,6 +17,8 @@ class Profile extends Component {
     this.state = {
       displayName: '',
       followers: '',
+      following: '',
+      playlists: '',
       avatar: '',
       topTracks: []
     };
@@ -36,7 +38,6 @@ class Profile extends Component {
 
   componentDidMount() {
     spotifyApi.getMe().then(response => {
-      console.log(response);
       this.setState({
         displayName: response.display_name,
         followers: response.followers.total,
@@ -44,21 +45,45 @@ class Profile extends Component {
       });
     });
     spotifyApi.getMyRecentlyPlayedTracks({ limit: 5 }).then(response => {
-      console.log(response);
       this.setState({
         topTracks: response.items
+      });
+    });
+    spotifyApi.getFollowedArtists().then(response => {
+      this.setState({
+        following: response.artists.items.length
+      });
+    });
+    spotifyApi.getUserPlaylists().then(response => {
+      this.setState({
+        playlists: response.items.length
       });
     });
   }
 
   render() {
-    console.log(this.state.topTracks);
-
     return (
       <div>
-        <h2>{this.state.displayName}</h2>
-        <h2>{this.state.followers}</h2>
-        <img src={this.state.avatar} className='avatar' />
+        <div className='account'>
+          <img src={this.state.avatar} />
+          <div className='account-wrapper'>
+            <h1>{this.state.displayName}</h1>
+            <div className='account-stats'>
+              <div className='following'>
+                <h4>following</h4>
+                <h2>{this.state.following}</h2>
+              </div>
+              <div className='followers'>
+                <h4>followers</h4>
+                <h2>{this.state.followers}</h2>
+              </div>
+              <div className='playlists'>
+                <h4>playlists</h4>
+                <h2>{this.state.playlists}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className='song-wrapper'>
           {this.state.topTracks.map(song => (
             <SongCard key={song.track.id} song={song} />
