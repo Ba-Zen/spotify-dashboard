@@ -28,6 +28,8 @@
     font-size: 44;
 
     &:hover {
+      cursor: pointer;
+      transition: all 0.5s ease;
       color: #1db954;
     }
   }
