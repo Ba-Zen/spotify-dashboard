@@ -64,13 +64,11 @@ class Profile extends Component {
       });
     });
     spotifyApi.getMyTopArtists({ limit: 5 }).then(response => {
-      console.log(response);
       this.setState({
         topArtists: response.items
       });
     });
     spotifyApi.getMyTopTracks({ limit: 5 }).then(response => {
-      console.log(response);
       this.setState({
         topTracks: response.items
       });
@@ -81,7 +79,7 @@ class Profile extends Component {
     return (
       <div>
         <div className='account'>
-          <img src={this.state.avatar} />
+          <img src={this.state.avatar} alt='profile' />
           <div className='account-wrapper'>
             <h1>{this.state.displayName}</h1>
             <div className='account-stats'>
