@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './songCard.scss';
+import './songCard.styles.scss';
 
 const SongCard = props => {
   return (

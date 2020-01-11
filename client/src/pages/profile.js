@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
-import SongCard from '../components/songcard/songCard';
+import SongCard from '../components/songcard/songCard.component';
 
 import './profile.styles.scss';
 
@@ -84,12 +84,15 @@ class Profile extends Component {
             </div>
           </div>
         </div>
+        <div className='recently-played'>
+          <h3>Recently Played</h3>
+          <button>See all</button>
+        </div>
         <div className='song-wrapper'>
           {this.state.topTracks.map(song => (
             <SongCard key={song.track.id} song={song} />
           ))}
         </div>
-        <button>See all</button>
       </div>
     );
   }

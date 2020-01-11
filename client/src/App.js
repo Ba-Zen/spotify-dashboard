@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Profile from './pages/profile';
+import Menu from './components/menu/menu.component';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
@@ -55,10 +56,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
-        <Profile />
-        <a href='http://localhost:8888'> Login to Spotify </a>
-      </div>
+      <>
+        <Menu />
+        <div className='App'>
+          <Profile />
+          <a href='http://localhost:8888'> Login to Spotify </a>
+        </div>
+      </>
     );
   }
 }
