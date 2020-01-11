@@ -7,6 +7,15 @@
   margin: 10px;
   width: 118%;
 }
+.artist-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 118%;
+}
 
 .recently-played {
   display: flex;

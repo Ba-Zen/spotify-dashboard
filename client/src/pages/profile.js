@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import SongCard from '../components/songcard/songCard.component';
+import ArtistCard from '../components/artistcard/artistCard.component';
 
 import './profile.styles.scss';
 
@@ -20,7 +21,8 @@ class Profile extends Component {
       following: '',
       playlists: '',
       avatar: '',
-      topTracks: []
+      topTracks: [],
+      topArtists: []
     };
   }
   getHashParams() {
@@ -59,6 +61,12 @@ class Profile extends Component {
         playlists: response.items.length
       });
     });
+    spotifyApi.getMyTopArtists({ limit: 5 }).then(response => {
+      console.log(response);
+      this.setState({
+        topArtists: response.items
+      });
+    });
   }
 
   render() {
@@ -91,6 +99,11 @@ class Profile extends Component {
         <div className='song-wrapper'>
           {this.state.topTracks.map(song => (
             <SongCard key={song.track.id} song={song} />
+          ))}
+        </div>
+        <div className='artist-wrapper'>
+          {this.state.topArtists.map(artist => (
+            <ArtistCard artist={artist} />
           ))}
         </div>
       </div>
