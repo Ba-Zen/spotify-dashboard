@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import SongCard from '../components/songcard/songCard.component';
 import ArtistCard from '../components/artistcard/artistCard.component';
+import TrackCard from '../components/trackcard/trackCard.component';
 
 import './profile.styles.scss';
 
@@ -21,8 +22,9 @@ class Profile extends Component {
       following: '',
       playlists: '',
       avatar: '',
-      topTracks: [],
-      topArtists: []
+      recentlyPlayed: [],
+      topArtists: [],
+      topTracks: []
     };
   }
   getHashParams() {
@@ -48,7 +50,7 @@ class Profile extends Component {
     });
     spotifyApi.getMyRecentlyPlayedTracks({ limit: 5 }).then(response => {
       this.setState({
-        topTracks: response.items
+        recentlyPlayed: response.items
       });
     });
     spotifyApi.getFollowedArtists().then(response => {
@@ -65,6 +67,12 @@ class Profile extends Component {
       console.log(response);
       this.setState({
         topArtists: response.items
+      });
+    });
+    spotifyApi.getMyTopTracks({ limit: 5 }).then(response => {
+      console.log(response);
+      this.setState({
+        topTracks: response.items
       });
     });
   }
@@ -92,18 +100,31 @@ class Profile extends Component {
             </div>
           </div>
         </div>
-        <div className='recently-played'>
+        <div className='section-title'>
           <h3>Recently Played</h3>
           <button>See all</button>
         </div>
         <div className='song-wrapper'>
-          {this.state.topTracks.map(song => (
+          {this.state.recentlyPlayed.map(song => (
             <SongCard key={song.track.id} song={song} />
           ))}
         </div>
+        <div className='section-title'>
+          <h3>Top Artists</h3>
+          <button>See all</button>
+        </div>
         <div className='artist-wrapper'>
           {this.state.topArtists.map(artist => (
-            <ArtistCard artist={artist} />
+            <ArtistCard key={artist.id} artist={artist} />
+          ))}
+        </div>
+        <div className='section-title'>
+          <h3>Top Tracks</h3>
+          <button>See all</button>
+        </div>
+        <div className='track-wrapper'>
+          {this.state.topTracks.map(track => (
+            <TrackCard key={track.id} track={track} />
           ))}
         </div>
       </div>

@@ -1,0 +1,33 @@
+.track-card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  fill: #b3b3b3;
+  background: #282828;
+  margin: 10px;
+  width: 150px;
+  img {
+    width: 150px;
+  }
+  h1 {
+    text-align: start;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0.24px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  h2 {
+    color: #b3b3b3;
+    font-size: 12px;
+    text-align: start;
+  }
+}
