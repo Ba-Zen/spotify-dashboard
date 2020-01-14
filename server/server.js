@@ -15,13 +15,14 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = process.env.SPOTIFY_CLIENT_ID; // Your client id
-var client_secret = process.env.SPOTIFY_CLIENT_SECRET; // Your secret
-var redirect_uri = process.env.REDIRECT_URI; // Your redirect uri
+const client_id = process.env.SPOTIFY_CLIENT_ID;
+const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+let redirect_uri = process.env.REDIRECT_URI || 'http://localhost:8888/callback';
+let frontend_uri = process.env.FRONTEND_URI || 'http://localhost:3000';
 
 if (process.env.NODE_ENV !== 'production') {
-  REDIRECT_URI = 'http://localhost:8888/callback';
-  FRONTEND_URI = 'http://localhost:3000';
+  redirect_uri = 'http://localhost:8888/callback';
+  frontend_uri = 'http://localhost:3000';
 }
 
 /**
@@ -118,19 +119,13 @@ app.get('/callback', function(req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          process.env.FRONTEND_URI +
-            querystring.stringify({
-              access_token: access_token,
-              refresh_token: refresh_token
-            })
+          `${frontend_uri}/#${querystring.stringify({
+            access_token,
+            refresh_token
+          })}`
         );
       } else {
-        res.redirect(
-          '/#' +
-            querystring.stringify({
-              error: 'invalid_token'
-            })
-        );
+        res.redirect(`/#${querystring.stringify({ error: 'invalid_token' })}`);
       }
     });
   }
