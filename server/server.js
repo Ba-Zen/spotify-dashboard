@@ -27,7 +27,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 /**
- * Generates a random string containing numbers and letters
+ * Generates a random string containing numbers and letters.
  * @param  {number} length The length of the string
  * @return {string} The generated string
  */
