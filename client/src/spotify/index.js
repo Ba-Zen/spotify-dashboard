@@ -10,8 +10,8 @@ const setLocalAccessToken = token => {
   setTokenTimestamp();
   window.localStorage.setItem('spotify_access_token', token);
 };
-const setLocalRefreshToken = token =>
-  window.localStorage.setItem('spotify_refresh_token', token);
+// const setLocalRefreshToken = token =>
+//   window.localStorage.setItem('spotify_refresh_token', token);
 const getTokenTimestamp = () =>
   window.localStorage.getItem('spotify_token_timestamp');
 const getLocalAccessToken = () =>
@@ -36,7 +36,7 @@ const refreshAccessToken = async () => {
 
 // Gets access token off of query params (called on application init)
 export const getAccessToken = () => {
-  const { error, access_token, refresh_token } = getHashParams();
+  const { error, access_token } = getHashParams();
   if (error) {
     console.log(error);
     refreshAccessToken();
@@ -49,7 +49,7 @@ export const getAccessToken = () => {
   }
 
   const localAccessToken = getLocalAccessToken();
-  const localRefreshToken = getLocalRefreshToken();
+  // const localRefreshToken = getLocalRefreshToken();
 
   // If there's no access token in local storage, set it and return `access_token from the params
   if (!localAccessToken || localAccessToken === 'undefined') {
