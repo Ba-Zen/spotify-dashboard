@@ -1,8 +1,12 @@
 import React from 'react';
 
+let login =
+  process.env.NODE_ENV !== 'production'
+    ? 'http://localhost:8888/login'
+    : 'https://myspotbackend.herokuapp.com/login';
 const LoginScreen = () => (
   <div>
-    <a href='http://localhost:8888/login'> Login to Spotify </a>
+    <a href={login}> Login to Spotify.... </a>
   </div>
 );
 

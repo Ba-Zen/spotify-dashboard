@@ -14,6 +14,7 @@ var request = require('request'); // "Request" library
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
+const path = require('path');
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -23,6 +24,14 @@ let frontend_uri = process.env.FRONTEND_URI || 'http://localhost:3000';
 if (process.env.NODE_ENV !== 'production') {
   redirect_uri = 'http://localhost:8888/callback';
   frontend_uri = 'http://localhost:3000';
+}
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', (request, response) => {
+    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
 }
 
 /**
