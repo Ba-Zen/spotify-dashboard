@@ -20,6 +20,7 @@ const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 let redirect_uri = process.env.REDIRECT_URI || 'http://localhost:8888/callback';
 let frontend_uri = process.env.FRONTEND_URI || 'http://localhost:3000';
+const port = process.env.PORT || 8888;
 
 if (process.env.NODE_ENV !== 'production') {
   redirect_uri = 'http://localhost:8888/callback';
@@ -160,4 +161,4 @@ app.get('/refresh_token', function(req, res) {
 });
 
 console.log('Listening on 8888');
-app.listen(8888);
+app.listen(port);
