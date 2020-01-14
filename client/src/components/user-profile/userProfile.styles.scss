@@ -60,8 +60,10 @@
 
   img {
     border-radius: 50%;
-    width: 150px;
-    box-shadow: rgb(179, 179, 179) 0px 0px 0px 2px inset;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    box-shadow: #b3b3b3 0px 0px 0px 2px inset;
   }
 
   h1 {
