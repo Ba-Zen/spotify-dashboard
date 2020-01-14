@@ -12,3 +12,17 @@
   background: #000000;
   opacity: 80%;
 }
+
+.link-container,
+.icon {
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  &:hover {
+    color: green;
+  }
+}
+
+.icon {
+  width: 25px;
+}

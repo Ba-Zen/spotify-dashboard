@@ -1,9 +1,18 @@
-.song-wrapper {
+.recent-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin: 10px;
-  width: 118%;
+
+  .song-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: auto;
+  }
+}
+.loader {
+  margin-top: 280px;
 }

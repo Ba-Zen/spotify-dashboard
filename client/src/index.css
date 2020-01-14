@@ -2,6 +2,12 @@
 *:before,
 *:after {
   list-style: none;
+  text-decoration: none;
+  font-family: 'Roboto Mono', monospace;
+}
+
+a {
+  color: #fff;
 }
 
 body {

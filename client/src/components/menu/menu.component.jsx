@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ReactComponent as User } from '../../assets/user.svg';
+import { ReactComponent as History } from '../../assets/history.svg';
+import { ReactComponent as Artist } from '../../assets/artist.svg';
+import { ReactComponent as Tracks } from '../../assets/tracks.svg';
 
 import './menu.styles.scss';
 
@@ -8,16 +12,28 @@ const Menu = () => {
     <div>
       <div className='menu-container'>
         <Link to='/'>
-          <h4>Home</h4>
+          <div className='link-container'>
+            <User className='icon' />
+            <h4>Profile</h4>
+          </div>
         </Link>
         <Link to='/recently-played'>
-          <h4>Recently Played</h4>
+          <div className='link-container'>
+            <History className='icon' />
+            <h4>Recent</h4>
+          </div>
         </Link>
         <Link to='/top-artists'>
-          <h4>Top Artists</h4>
+          <div className='link-container'>
+            <Artist className='icon' />
+            <h4>Top Artists</h4>
+          </div>
         </Link>
         <Link to='/top-tracks'>
-          <h4>Top Tracks</h4>
+          <div className='link-container'>
+            <Tracks className='icon' />
+            <h4>Top Tracks</h4>
+          </div>
         </Link>
       </div>
     </div>

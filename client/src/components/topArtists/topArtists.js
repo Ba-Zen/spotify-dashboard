@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { getUserInfo } from '../../spotify/index';
 import ArtistCard from '../artistcard/artistCard.component';
+import Loader from 'react-loader-spinner';
+
 import './topArtists.styles.scss';
 
 class TopArtists extends Component {
   state = {
-    topArtists: []
+    topArtists: [],
+    loading: true
   };
 
   componentDidMount() {
@@ -14,20 +17,33 @@ class TopArtists extends Component {
 
   async getData() {
     const { topArtists } = await getUserInfo();
-    this.setState({ topArtists: topArtists.items });
+    this.setState({ topArtists: topArtists.items, loading: false });
   }
 
   render() {
-    const { topArtists } = this.state;
+    const { topArtists, loading } = this.state;
     return (
-      <div>
-        <h2>Top Artists</h2>
-        <div className='artist-wrapper'>
-          {topArtists.map(artist => (
-            <ArtistCard key={artist.id} artist={artist} />
-          ))}
-        </div>
-      </div>
+      <>
+        {!loading ? (
+          <div className='artist-container'>
+            <h2>Top Artists</h2>
+            <div className='artist-wrapper'>
+              {topArtists.map(artist => (
+                <ArtistCard key={artist.id} artist={artist} />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <Loader
+            type='ThreeDots'
+            color='#1db954'
+            height={100}
+            width={100}
+            timeout={3000}
+            className='loader'
+          />
+        )}
+      </>
     );
   }
 }
