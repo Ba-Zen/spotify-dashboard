@@ -10,8 +10,8 @@ const setLocalAccessToken = token => {
   setTokenTimestamp();
   window.localStorage.setItem('spotify_access_token', token);
 };
-// const setLocalRefreshToken = token =>
-//   window.localStorage.setItem('spotify_refresh_token', token);
+const setLocalRefreshToken = token =>
+  window.localStorage.setItem('spotify_refresh_token', token);
 const getTokenTimestamp = () =>
   window.localStorage.getItem('spotify_token_timestamp');
 const getLocalAccessToken = () =>
@@ -36,7 +36,8 @@ const refreshAccessToken = async () => {
 
 // Gets access token off of query params (called on application init)
 export const getAccessToken = () => {
-  const { error, access_token } = getHashParams();
+  const { error, access_token, refresh_token } = getHashParams();
+
   if (error) {
     console.log(error);
     refreshAccessToken();
@@ -49,9 +50,14 @@ export const getAccessToken = () => {
   }
 
   const localAccessToken = getLocalAccessToken();
-  // const localRefreshToken = getLocalRefreshToken();
+  const localRefreshToken = getLocalRefreshToken();
 
-  // If there's no access token in local storage, set it and return `access_token from the params
+  // If there's no refresh token in local storage, set it as `refresh_token` from params
+  if (!localRefreshToken || localRefreshToken === 'undefined') {
+    setLocalRefreshToken(refresh_token);
+  }
+
+  // If there's no access token in local storage, set it and return `access_token` from the params
   if (!localAccessToken || localAccessToken === 'undefined') {
     setLocalAccessToken(access_token);
     return access_token;
@@ -60,6 +66,16 @@ export const getAccessToken = () => {
 };
 
 export const token = getAccessToken();
+
+export const logout = () => {
+  window.localStorage.removeItem('spotify_token_timestamp');
+  window.localStorage.removeItem('spotify_access_token');
+  window.localStorage.removeItem('spotify_refresh_token');
+  window.location.reload();
+  localStorage.clear();
+};
+
+// API CALLS
 
 const headers = {
   Authorization: `Bearer ${token}`,

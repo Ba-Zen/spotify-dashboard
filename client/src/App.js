@@ -17,7 +17,6 @@ class App extends Component {
 
   render() {
     const { token } = this.state;
-    console.log(this.state);
     return (
       <>
         <div className='App'>{token ? <Profile /> : <LoginScreen />}</div>

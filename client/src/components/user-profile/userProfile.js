@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getUserInfo } from '../../spotify';
+import { getUserInfo, logout } from '../../spotify';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
@@ -54,7 +54,6 @@ class UserProfile extends Component {
       topTracks,
       loading
     } = this.state;
-    console.log(followedArtists);
 
     return (
       <>
@@ -63,14 +62,17 @@ class UserProfile extends Component {
             <div className='account'>
               <img src={user.images[0].url} alt='profile' />
               <div className='account-wrapper'>
-                <a
-                  href={user.external_urls.spotify}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <h1>{user.display_name}</h1>
-                </a>
+                <div className='profile-buttons'>
+                  <a
+                    href={user.external_urls.spotify}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    <h1>{user.display_name}</h1>
+                  </a>
 
+                  <button onClick={logout}>Logout</button>
+                </div>
                 <div className='account-stats'>
                   <div className='following'>
                     <h4>Following</h4>
