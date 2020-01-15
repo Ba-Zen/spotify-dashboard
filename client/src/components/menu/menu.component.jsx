@@ -11,7 +11,7 @@ const Menu = () => {
   return (
     <div>
       <div className='menu-container'>
-        <Link to='/'>
+        <Link to='/profile'>
           <div className='link-container'>
             <User className='icon' />
             <h4>Profile</h4>

@@ -19,12 +19,12 @@ const path = require('path');
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 let redirect_uri = process.env.REDIRECT_URI || 'http://localhost:8888/callback';
-let frontend_uri = process.env.FRONTEND_URI || 'http://localhost:3000';
+let frontend_uri = process.env.FRONTEND_URI || 'http://localhost:3000/profile';
 const port = process.env.PORT || 8888;
 
 if (process.env.NODE_ENV !== 'production') {
   redirect_uri = 'http://localhost:8888/callback';
-  frontend_uri = 'http://localhost:3000';
+  frontend_uri = 'http://localhost:3000/profile';
 }
 
 /**

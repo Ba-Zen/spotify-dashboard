@@ -24,6 +24,7 @@ class UserProfile extends Component {
   componentDidMount() {
     this.getData();
   }
+
   async getData() {
     const {
       user,
@@ -54,7 +55,7 @@ class UserProfile extends Component {
       topTracks,
       loading
     } = this.state;
-
+    console.log('HISTORY', this.props.history);
     return (
       <>
         {!loading ? (
