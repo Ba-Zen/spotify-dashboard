@@ -4,7 +4,7 @@ const LoginScreen = () => (
   <div>
     <a href='https://myspotify-backend.herokuapp.com/login'>
       {' '}
-      Login to Spotify....{' '}
+      Login to Spotify{' '}
     </a>
   </div>
 );
