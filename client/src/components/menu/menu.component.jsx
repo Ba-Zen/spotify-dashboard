@@ -46,7 +46,7 @@ class Menu extends Component {
               >
                 <h2>{user.display_name}</h2>
               </a>
-              <button onClick={logout}>Logout</button>
+              {/* <button onClick={logout}>Logout</button> */}
               <div className='account-stats'>
                 <div className='following'>
                   <h4>Following</h4>
@@ -56,10 +56,10 @@ class Menu extends Component {
                   <h4>Followers</h4>
                   <h2>{user.followers.total}</h2>
                 </div>
-                <div className='playlists'>
+                {/* <div className='playlists'>
                   <h4>Playlists</h4>
                   <h2>{playlists.total}</h2>
-                </div>
+                </div> */}
               </div>
               <div className='link-wrapper'>
                 <Link to='/profile'>
@@ -87,6 +87,7 @@ class Menu extends Component {
                   </div>
                 </Link>
               </div>
+              <button onClick={logout}>Logout</button>
             </div>
           </div>
         ) : (
