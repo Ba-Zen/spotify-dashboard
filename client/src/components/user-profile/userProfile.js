@@ -60,37 +60,8 @@ class UserProfile extends Component {
       <>
         {!loading ? (
           <div className='profile-container'>
-            <div className='account'>
-              {/* <img src={user.images[0].url} alt='profile' /> */}
-              <div className='account-wrapper'>
-                {/* <div className='profile-buttons'>
-                  <a
-                    href={user.external_urls.spotify}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    <h1>{user.display_name}</h1>
-                  </a>
-
-                  <button onClick={logout}>Logout</button>
-                </div> */}
-                {/* <div className='account-stats'>
-                  <div className='following'>
-                    <h4>Following</h4>
-                    <h2>{followedArtists.artists.total}</h2>
-                  </div>
-                  <div className='followers'>
-                    <h4>Followers</h4>
-                    <h2>{user.followers.total}</h2>
-                  </div>
-                  <div className='playlists'>
-                    <h4>Playlists</h4>
-                    <h2>{playlists.total}</h2>
-                  </div>
-                </div> */}
-              </div>
-            </div>
-            <div className='section-title'>
+            <div className='account'></div>
+            <div className='recent-section-title'>
               <h3>Recently Played</h3>
               <Link to='/recently-played'>
                 <button>See All</button>

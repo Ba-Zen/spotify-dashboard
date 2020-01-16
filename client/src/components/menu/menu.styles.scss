@@ -38,7 +38,7 @@
   flex-direction: column;
   width: 200px;
   h4 {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 .account-stats {
@@ -57,6 +57,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    h4 {
+      margin-right: 84px;
+    }
   }
   .playlists {
     display: flex;
