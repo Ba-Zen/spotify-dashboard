@@ -61,9 +61,9 @@ class UserProfile extends Component {
         {!loading ? (
           <div>
             <div className='account'>
-              <img src={user.images[0].url} alt='profile' />
+              {/* <img src={user.images[0].url} alt='profile' /> */}
               <div className='account-wrapper'>
-                <div className='profile-buttons'>
+                {/* <div className='profile-buttons'>
                   <a
                     href={user.external_urls.spotify}
                     target='_blank'
@@ -73,8 +73,8 @@ class UserProfile extends Component {
                   </a>
 
                   <button onClick={logout}>Logout</button>
-                </div>
-                <div className='account-stats'>
+                </div> */}
+                {/* <div className='account-stats'>
                   <div className='following'>
                     <h4>Following</h4>
                     <h2>{followedArtists.artists.total}</h2>
@@ -87,7 +87,7 @@ class UserProfile extends Component {
                     <h4>Playlists</h4>
                     <h2>{playlists.total}</h2>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className='section-title'>

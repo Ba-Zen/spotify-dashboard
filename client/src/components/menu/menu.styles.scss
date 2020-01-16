@@ -8,13 +8,65 @@
   top: 0px;
   left: 0px;
   bottom: 0px;
-  width: 125px;
+  width: 250px;
   background: #000000;
   opacity: 80%;
+  img {
+    border-radius: 50%;
+    height: 175px;
+    width: 175px;
+    object-fit: cover;
+    box-shadow: #b3b3b3 0px 0px 0px 2px inset;
+  }
+  button {
+    width: 80px;
+    height: 36px;
+    color: white;
+    background-color: transparent;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+.link-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+.account-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .following {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .followers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .playlists {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  h4 {
+    margin-right: 70px;
+  }
+  h2 {
+    color: #1db954;
+  }
 }
 
 .link-container,
 .icon {
+  display: flex;
   font-size: 12px;
   width: 100%;
   text-align: center;
@@ -25,4 +77,5 @@
 
 .icon {
   width: 25px;
+  margin-right: 70px;
 }
