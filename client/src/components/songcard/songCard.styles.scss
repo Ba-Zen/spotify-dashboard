@@ -2,20 +2,22 @@
   display: flex;
   flex-direction: column;
   padding: 15px;
-  border-radius: 5px;
-  fill: #b3b3b3;
-  background: #282828;
   margin: 10px;
-  width: 150px;
+  // border-radius: 5px;
+  // fill: #b3b3b3;
+  // background: #282828;
+  // margin: 10px;
+  width: 215px;
   img {
-    width: 150px;
+    width: 240px;
   }
+
   h1 {
     text-align: start;
     text-transform: capitalize;
     text-overflow: ellipsis;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: 0.24px;
     overflow: hidden;
     white-space: nowrap;
@@ -27,7 +29,7 @@
 
   h2 {
     color: #b3b3b3;
-    font-size: 12px;
+    font-size: 14px;
     text-align: start;
   }
 }

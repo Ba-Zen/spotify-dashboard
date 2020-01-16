@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getUserInfo, logout } from '../../spotify';
+import { getUserInfo, getRecommendedTracks } from '../../spotify';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
@@ -18,7 +18,8 @@ class UserProfile extends Component {
     playlists: [],
     recentlyPlayed: [],
     topArtists: [],
-    topTracks: []
+    topTracks: [],
+    recommendations: []
   };
 
   componentDidMount() {
@@ -55,11 +56,10 @@ class UserProfile extends Component {
       topTracks,
       loading
     } = this.state;
-    console.log('HISTORY', this.props.history);
     return (
       <>
         {!loading ? (
-          <div>
+          <div className='profile-container'>
             <div className='account'>
               {/* <img src={user.images[0].url} alt='profile' /> */}
               <div className='account-wrapper'>
@@ -97,7 +97,7 @@ class UserProfile extends Component {
               </Link>
             </div>
             <div className='song-wrapper'>
-              {recentlyPlayed.items.slice(0, 5).map(song => (
+              {recentlyPlayed.items.slice(0, 4).map(song => (
                 <SongCard key={song.track.id} song={song} />
               ))}
             </div>

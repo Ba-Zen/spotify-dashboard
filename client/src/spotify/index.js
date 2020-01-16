@@ -107,6 +107,21 @@ export const getTopTracks = () =>
     { headers }
   );
 
+// const getTrackIds = tracks => tracks.map(({ track }) => track.id).join(',');
+
+// export const getRecommendedTracks = tracks => {
+//   const shuffledTracks = tracks.sort(() => 0.5 - Math.random());
+//   const seed_tracks = getTrackIds(shuffledTracks.slice(0, 5));
+//   const seed_artists = '';
+//   const seed_genres = '';
+//   return axios.get(
+//     `https://api.spotify.com/v1/recommendations?seed_tracks=${seed_tracks}&seed_artists=${seed_artists}&seed_genres=${seed_genres}`,
+//     {
+//       headers
+//     }
+//   );
+// };
+
 export const getUserInfo = () => {
   return axios
     .all([
