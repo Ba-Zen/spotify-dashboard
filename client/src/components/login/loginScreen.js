@@ -18,7 +18,8 @@ const LoginScreen = () => {
       <div className='demo-login'>
         <p>
           If you don't have your own Spotify account feel free to sign in with
-          the details below!
+          the details below! Still gathering top artists and tracks data as of
+          1/16. Please bare with the harvest.
         </p>
         <h2>Email: myspotifydemo@gmail.com</h2>
         <h2>Password: demo1234</h2>

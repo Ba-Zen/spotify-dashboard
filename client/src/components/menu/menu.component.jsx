@@ -38,7 +38,11 @@ class Menu extends Component {
         {!loading ? (
           <div>
             <div className='menu-container'>
-              <img src={user.images[0].url} alt='profile' />
+              {user.images.length > 0 ? (
+                <img src={user.images[0].url} />
+              ) : (
+                'no avatar'
+              )}
               <a
                 href={user.external_urls.spotify}
                 target='_blank'
