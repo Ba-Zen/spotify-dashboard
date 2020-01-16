@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getUserInfo } from '../../spotify/index';
 import SongCard from '../songcard/songCard.component';
+import SongList from '../songlist/songList';
 import Loader from 'react-loader-spinner';
 
 import './recentlyPlayed.styles.scss';
@@ -29,7 +30,7 @@ class RecentlyPlayed extends Component {
             <h2>Recently Played Songs</h2>
             <div className='song-wrapper'>
               {recentlyPlayed.map(song => (
-                <SongCard key={song.track.id} song={song} />
+                <SongList key={song.track.id} song={song} />
               ))}
             </div>
           </div>

@@ -1,0 +1,27 @@
+.song-list {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 800px;
+  border-top: 0.5px solid white;
+  border-bottom: 0.5px solid white;
+  .song-name {
+    width: 33%;
+  }
+  .artist-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 33%;
+    font-size: 12px;
+    color: #fff;
+    padding-left: 50px;
+  }
+
+  .time {
+    display: flex;
+    justify-content: flex-end;
+    width: 33%;
+  }
+}
