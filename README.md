@@ -6,7 +6,7 @@
 
 <p align="left"><h2 align="left">Screenshot</h2></p>
 
-<p align="center"> <img src="./src/assets/spotify.png" /> </p>
+<p align="center"> <img src="./client/src/assets/spotify.png" /> </p>
 
 ---
 
